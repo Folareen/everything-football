@@ -26,7 +26,7 @@ const NavBar = () => {
                 ({title, route}, index) => {
                     return(
                         <Link href={route} key={index}>
-                            <Button sx={{px: 4, py: 1, borderRadius: 0, fontFamily: 'inherit', fontSize: 18, borderBottomColor: 'primary.light', borderBottomWidth: (pathname === route ? 3 : 0 ), borderBottomStyle: 'solid', mx: 2, color: (pathname === route ? 'primary.light' : 'primary.dark' )}}   >
+                            <Button sx={{px: 2, py: 1, borderRadius: 0, fontFamily: 'inherit', fontSize: 18, borderBottomColor: 'primary.light', borderBottomWidth: (pathname === route ? 3 : 0 ), borderBottomStyle: 'solid', mx: 2, color: (pathname === route ? 'primary.light' : 'primary.main' )}}   >
                                 {title}
                             </Button>
                         </Link>
