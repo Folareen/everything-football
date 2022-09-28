@@ -15,6 +15,7 @@
     "@fontsource/signika": "^4.5.11",
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.10.6",
+    "@mui/lab": "^5.0.0-alpha.101",
     "@mui/material": "^5.10.7",
     "next": "12.3.1",
     "react": "18.2.0",
