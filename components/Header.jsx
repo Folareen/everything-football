@@ -5,7 +5,7 @@ import NavBar from "./NavBar"
 
 const Header = () => {
   return (
-    <Box sx={{positon: 'fixed', borderBottom: '1px solid grey', boxShadow: '0 0 5px gray', mb: 2, bgcolor: '#003366'}}>
+    <Box sx={{positon: 'fixed', borderBottom: '1px solid grey', boxShadow: '0 0 5px gray', bgcolor: '#003366'}}>
         <Box sx={{display: 'flex', alignItems: 'center' , justifyContent: 'space-between', p: 0.5}}>
             <Box sx={{width: {xs: '95%', sm: '320px' }, mx: 'auto'}}>
                 <Logo />

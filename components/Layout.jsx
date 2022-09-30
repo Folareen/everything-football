@@ -13,13 +13,15 @@ const Layout = ({children}) => {
     const theme = createTheme({
         palette: {
             mode,
+        }, typography : {
+          fontFamily: 'Signika'
         }
     });
 
   return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box sx={{fontFamily: 'Signika'}} >
+        <Box sx={{fontFamily: 'Signika', bgcolor: 'rgba(0, 51, 102, 0.2)', minHeight: '100vh', position: 'relative'}} >
           <Header />
           {children}
           <Footer />
