@@ -10,12 +10,12 @@ const Header = () => {
             <Box sx={{width: {xs: '95%', sm: '320px' }, mx: 'auto'}}>
                 <Logo />
             </Box>
-            <Box sx={{display: { sm: 'block', xs: 'none'}, flex: 1}}>
+            <Box sx={{display: { md: 'block', xs: 'none'}, flex: 1}}>
                 <NavBar/>
             </Box>
             <ColorModeButton />
         </Box>
-        <Box sx={{display: { xs: 'block', sm: 'none'}}}>
+        <Box sx={{display: { xs: 'block', md: 'none'}}}>
             <NavBar/>
         </Box>
     </Box>

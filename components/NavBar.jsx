@@ -7,7 +7,7 @@ const navItems = [
         title: 'match', route: '/match'
     },
     {
-        title: 'stats', route: '/stats'
+        title: 'standings', route: '/standings'
     },
     {
         title: 'video', route: '/video'
