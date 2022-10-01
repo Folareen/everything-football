@@ -13,7 +13,7 @@ const match = ({ todayData }) => {
 
 export default match;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const options = {
     method: "GET",
     headers: {
