@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import LiveMatches from "../../components/LiveMatches";
 import MatchesNav from "../../components/MatchesNav";
@@ -14,7 +13,7 @@ const match = ({ liveData }) => {
 
 export default match;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const options = {
     method: "GET",
     headers: {
