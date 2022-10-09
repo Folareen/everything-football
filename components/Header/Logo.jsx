@@ -1,6 +1,6 @@
 import { Typography, Box } from "@mui/material"
 import Link from "next/link"
-import ball from '../assets/ball.svg'
+import ball from '../../assets/ball.svg'
 
 const Logo = () => {
   return (
