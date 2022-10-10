@@ -58,15 +58,15 @@ const League = ({league}) => {
       <Typography component={'h3'} sx={{ fontSize: 18, color: 'primary.dark'}}>
         {Snm}
       </Typography>
-      <Typography component={'h4'} sx={{fontSize: 14, color: 'primary.light' }}>
-        {Cnm}
+      <Typography component={'h4'} sx={{fontSize: 14, color: 'primary.main' }}>
+        {Cnm} yoo
       </Typography>
     </Box>
 
     {
       Events.map(
-        (event) => {
-          return <Match match={event} />
+        (event, index) => {
+          return <Match match={event} key={index}/>
         }
       )
     }
@@ -98,13 +98,14 @@ const TodayMatches = ({data}) => {
                   label={league.Snm}
                   value={String(index + 1)}
                   sx={{ mx: 2, fontFamily: "Signika" }}
+                  key={index}
                 />
               );
             })}
           </TabList>
         </Box>
         {Stages.map((league, index) => {
-          return <TabPanel value={String(index + 1)}>
+          return <TabPanel value={String(index + 1)} key={index}>
             <League league={league} />
           </TabPanel>;
         })}
