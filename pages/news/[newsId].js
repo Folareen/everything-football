@@ -3,10 +3,10 @@ import { Box, IconButton, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { ArrowBack } from "@material-ui/icons";
+import Loader from "../../components/Loader";
 
 const NewsDetail = () => {
   const router = useRouter();
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -36,7 +36,7 @@ const NewsDetail = () => {
   }, [router.query]);
 
   if (loading) {
-    return <Box>Loading...</Box>;
+    return <Loader />;
   }
 
   return (
