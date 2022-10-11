@@ -1,7 +1,47 @@
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
+import useSwr from "swr";
 
-const News = ({ data }) => {
+const News = () => {
+  const { data, error } = useSwr("today-matches", async () => {
+    const idOptions = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+        "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
+      },
+    };
+
+    const idResponse = await fetch(
+      "https://livescore6.p.rapidapi.com/news/v2/list",
+      idOptions
+    );
+    const idData = await idResponse.json();
+
+    const id = idData.categories[0].id;
+
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+        "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
+      },
+    };
+
+    const response = await fetch(
+      `https://livescore6.p.rapidapi.com/news/v2/list-by-sport?category=${id}&page=1`,
+      options
+    );
+    const responseData = await response.json();
+    const data = responseData.data;
+
+    return data;
+  });
+
+  if (!data && !error) {
+    return <Typography>Loading..</Typography>;
+  }
+
   return (
     <Box sx={{ p: 2, maxWidth: "1000px", mx: "auto" }}>
       <Typography
@@ -63,40 +103,40 @@ const News = ({ data }) => {
 
 export default News;
 
-export const getServerSideProps = async () => {
-  const idOptions = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
-      "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
-    },
-  };
+// export const getServerSideProps = async () => {
+//   const idOptions = {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+//       "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
+//     },
+//   };
 
-  const idResponse = await fetch(
-    "https://livescore6.p.rapidapi.com/news/v2/list",
-    idOptions
-  );
-  const idData = await idResponse.json();
+//   const idResponse = await fetch(
+//     "https://livescore6.p.rapidapi.com/news/v2/list",
+//     idOptions
+//   );
+//   const idData = await idResponse.json();
 
-  const id = idData.categories[0].id;
+//   const id = idData.categories[0].id;
 
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
-      "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
-    },
-  };
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+//       "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
+//     },
+//   };
 
-  const response = await fetch(
-    `https://livescore6.p.rapidapi.com/news/v2/list-by-sport?category=${id}&page=1`,
-    options
-  );
-  const data = await response.json();
+//   const response = await fetch(
+//     `https://livescore6.p.rapidapi.com/news/v2/list-by-sport?category=${id}&page=1`,
+//     options
+//   );
+//   const data = await response.json();
 
-  return {
-    props: {
-      data: data.data,
-    },
-  };
-};
+//   return {
+//     props: {
+//       data: data.data,
+//     },
+//   };
+// };
