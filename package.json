@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.4",
     "@fontsource/kanit": "^4.5.9",
     "@fontsource/signika": "^4.5.11",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.10.6",
     "@mui/lab": "^5.0.0-alpha.101",
