@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import StatsNav from "../../components/StandingsNav";
-import Table from "../../components/Table";
+import StandingsNav from "../../components/Standings/StandingsNav";
+import Table from "../../components/Standings/Table";
 
 const Standings = ({ leagues, table }) => {
   return (
     <Box sx={{ pb: 2 }}>
-      <StatsNav leagues={leagues} />
+      <StandingsNav leagues={leagues} />
       <Table table={table} />
     </Box>
   );

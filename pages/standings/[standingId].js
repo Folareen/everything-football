@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import StandingsNav from "../../components/Standings/StandingsNav";
-import Table from "../../components/Table";
+import Table from "../../components/Standings/Table";
 import { useRouter } from "next/router";
 
 const Standing = ({ leagues }) => {
