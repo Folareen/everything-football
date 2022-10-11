@@ -34,8 +34,6 @@ const Match = () => {
     return <Loader />;
   }
 
-  console.log(data);
-
   return (
     <>
       {data && (
