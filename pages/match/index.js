@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
-import LiveMatches from "../../components/LiveMatches";
-import MatchesNav from "../../components/MatchesNav";
+import LiveMatches from "../../components/Match/LiveMatches";
+import MatchesNav from "../../components/Match/MatchesNav";
 
-const match = ({ liveData }) => {
+const Match = ({ liveData }) => {
   return (
     <Box sx={{ width: "100%", pb: 2 }}>
       <MatchesNav />
@@ -11,13 +11,13 @@ const match = ({ liveData }) => {
   );
 };
 
-export default match;
+export default Match;
 
 export const getServerSideProps = async () => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "a3f5923269mshb2b9a1649ef26b6p14ec30jsn84d8543adf73",
+      "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
       "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
     },
   };

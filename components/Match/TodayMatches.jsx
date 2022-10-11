@@ -5,6 +5,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Link from "next/link";
+import isLive from "../../utils/isLive";
 
 const Match = ({match}) => {
   const {Eid, Eps, Tr1, Tr2, T1, T2} = match
@@ -12,9 +13,9 @@ const Match = ({match}) => {
   const team2 = T2[0]
 
   return <Link href={`/match/today-matches/${Eid}`}>
-  <Paper elevation={2} sx={{my: 1.5, py: 0.5,  width: '100%', mx: 'auto', maxWidth: '700px', display: 'flex', flexDirection: 'row', borderLeftColor: 'grey', borderLeftWidth: 2, borderLeftStyle: 'solid', bgcolor: 'rgba(0, 51, 102, 0.1)', '&:hover': {cursor: 'pointer'}}}>
+  <Paper elevation={2} sx={{my: 1.5, py: 0.5,  width: '100%', mx: 'auto', maxWidth: '700px', display: 'flex', flexDirection: 'row', borderLeftColor: (isLive(Eps) ? 'warning.main' : 'grey'), borderLeftWidth: 2, borderLeftStyle: 'solid', bgcolor: 'rgba(0, 51, 102, 0.1)', '&:hover': {cursor: 'pointer'}}}>
 
-    <Typography sx={{color: 'text.disabled', fontSize: 15, textAlign: 'center', mx:2, alignSelf: 'center'}}>
+    <Typography sx={{color: (isLive(Eps) ? 'warning.main' : 'text.disabled'), fontSize: 15, textAlign: 'center', mx:2, alignSelf: 'center'}}>
       {
         Eps
       }
@@ -59,7 +60,7 @@ const League = ({league}) => {
         {Snm}
       </Typography>
       <Typography component={'h4'} sx={{fontSize: 14, color: 'primary.main' }}>
-        {Cnm} yoo
+        {Cnm}
       </Typography>
     </Box>
 
@@ -77,7 +78,6 @@ const TodayMatches = ({data}) => {
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
-    console.log('change')
     setValue(newValue);
   };
   const {Stages} = data
@@ -97,7 +97,7 @@ const TodayMatches = ({data}) => {
                 <Tab
                   label={league.Snm}
                   value={String(index + 1)}
-                  sx={{ mx: 2, fontFamily: "Signika" }}
+                  sx={{ mx: 2}}
                   key={index}
                 />
               );

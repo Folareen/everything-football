@@ -7,6 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const table = ({table}) => {
+  console.log(table)
 
   return (
     <TableContainer component={Paper} elevation={4} sx={{my: 2, mb: 4, width: '90%', maxWidth: '600px', mx: 'auto', bgcolor: 'rgba(0, 51, 102, 0.05)'}}>

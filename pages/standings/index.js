@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import StatsNav from "../../components/StandingsNav";
 import Table from "../../components/Table";
 
-const standings = ({ leagues, table }) => {
+const Standings = ({ leagues, table }) => {
   return (
     <Box sx={{ pb: 2 }}>
       <StatsNav leagues={leagues} />
@@ -11,13 +11,13 @@ const standings = ({ leagues, table }) => {
   );
 };
 
-export default standings;
+export default Standings;
 
 export const getServerSideProps = async () => {
   const seasonsOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "a3f5923269mshb2b9a1649ef26b6p14ec30jsn84d8543adf73",
+      "X-RapidAPI-Key": "73b0945536msh8ea50af6e2d00b7p1388cejsnd67b8bc47222",
       "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
     },
   };
@@ -31,7 +31,7 @@ export const getServerSideProps = async () => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "a3f5923269mshb2b9a1649ef26b6p14ec30jsn84d8543adf73",
+      "X-RapidAPI-Key": "73b0945536msh8ea50af6e2d00b7p1388cejsnd67b8bc47222",
       "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
     },
   };

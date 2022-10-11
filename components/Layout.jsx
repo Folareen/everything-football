@@ -8,25 +8,25 @@ import { ColorModeContext } from '../context/colorModeContext';
 
 const Layout = ({children}) => {
 
-    const {mode} = useContext(ColorModeContext)
+  const {mode} = useContext(ColorModeContext)
 
-    const theme = createTheme({
-        palette: {
-            mode,
-        }, typography : {
-          fontFamily: 'Signika'
-        }
-    });
+  const theme = createTheme({
+      palette: {
+          mode,
+      }, typography : {
+        fontFamily: 'Signika'
+      }
+  });
 
   return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Box sx={{fontFamily: 'Signika', bgcolor: 'rgba(0, 51, 102, 0.2)', minHeight: '100vh', position: 'relative'}} >
-          <Header />
-          {children}
-          <Footer />
-        </Box>
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{fontFamily: 'Signika', bgcolor: 'rgba(0, 51, 102, 0.2)', minHeight: '100vh', position: 'relative', pb: 6}} >
+        <Header />
+        {children}
+        <Footer />
+      </Box>
+    </ThemeProvider>
   )
 }
 

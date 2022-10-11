@@ -93,7 +93,7 @@ const LiveMatches = ({data}) => {
                 <Tab
                   label={league.Snm}
                   value={String(index + 1)}
-                  sx={{ mx: 2, fontFamily: "Signika" }}
+                  sx={{ mx: 2 }}
                   key={index}
                 />
               );
