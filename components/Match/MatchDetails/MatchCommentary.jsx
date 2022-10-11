@@ -18,9 +18,9 @@ const MatchCommentary = ({matchCommentary, loading}) => {
     return (
         <Box>
             {
-                matchCommentary.Com.map(({Min, Txt}) => {
+                matchCommentary.Com.map(({Min, Txt}, index) => {
                     return(
-                        <Grid container sx={{bgcolor: 'rgba(0, 51, 102, 0.1)', p: 0.5, borderRadius: 1, my: 0.5}}>
+                        <Grid container sx={{bgcolor: 'rgba(0, 51, 102, 0.1)', p: 0.5, borderRadius: 1, my: 0.5}} key={index}>
                             <Grid item xs={1}>
                                 <Typography sx={{color: 'rgb(0, 51, 102)'}}>
                                     {Min}'

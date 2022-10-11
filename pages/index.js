@@ -22,6 +22,7 @@ export default function Home({ carouselData, newsData }) {
                   maxWidth: "900px",
                   maxHeight: "600px",
                 }}
+                key={image.image.data.urls.uploaded.original}
               >
                 <img
                   src={image.image.data.urls.uploaded.original}

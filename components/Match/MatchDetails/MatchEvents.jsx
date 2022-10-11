@@ -23,13 +23,13 @@ const MatchEvents = ({incidents, Eps, loading}) => {
   return (
     <Box >
       {
-        firstHalf.map(incident => {
+        firstHalf.map((incident, index) => {
           const {Min, Nm} = incident
           return (
-          <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}}>
+          <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}} key={index}>
             <Grid item xs={2} sx={{display: 'flex', alignItems: 'center'}}>
               <Typography sx={{p: 1, color: 'rgb(0, 51, 102)'}}>
-                {Min}'
+                {Min}{`'`}
               </Typography>
             </Grid>
 
@@ -172,13 +172,13 @@ const MatchEvents = ({incidents, Eps, loading}) => {
 
 
       {
-        secondHalf.map(incident => {
+        secondHalf.map((incident, index) => {
           const {Min, Nm} = incident
           return (
-            <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}}>
+            <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}} key={index}>
             <Grid item xs={2} sx={{display: 'flex', alignItems: 'center'}}>
               <Typography sx={{p: 1, color: 'rgb(0, 51, 102)'}}>
-                {Min}'
+                {Min}{`'`}
               </Typography>
             </Grid>
 
