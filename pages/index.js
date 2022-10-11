@@ -19,8 +19,9 @@ export default function Home({ carouselData, newsData }) {
               <Box
                 sx={{
                   width: "100%",
-                  maxWidth: "900px",
-                  maxHeight: "600px",
+                  maxWidth: "1000px",
+                  maxHeight: "400px",
+                  mx: "auto",
                 }}
                 key={image.image.data.urls.uploaded.original}
               >

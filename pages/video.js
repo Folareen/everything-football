@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { useState, useEffect } from "react";
+import Loader from "../components/Loader";
 
 const Video = () => {
   const [loading, setLoading] = useState(true);
@@ -19,13 +20,12 @@ const Video = () => {
     fetch("https://free-football-soccer-videos.p.rapidapi.com/", options)
       .then((response) => response.json())
       .then((response) => setVideos(response.slice(0, videosCount)))
-      .catch((err) => console.error(err));
-
-    setLoading(false);
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, [videosCount]);
 
   if (loading) {
-    return <Typography>Loading..</Typography>;
+    return <Loader />;
   }
 
   if (!videos) {
