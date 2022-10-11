@@ -13,7 +13,13 @@ const MatchCommentary = ({matchCommentary, loading}) => {
         )
     }
     
-    console.log(matchCommentary)
+    if(!matchCommentary.Com){
+        return (
+            <Box>
+                Unavailable...
+            </Box>
+        )
+    }
 
     return (
         <Box>

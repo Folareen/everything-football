@@ -15,10 +15,18 @@ const MatchEvents = ({incidents, Eps, loading}) => {
       )
   }
 
+  if(!incidents.Incs){
+    return (
+        <Box>
+            Unavailable...
+        </Box>
+    )
+  }
+
   const firstHalf = incidents.Incs['1']
   const secondHalf = incidents.Incs['2']
 
-  console.log(incidents)
+
 
   return (
     <Box >

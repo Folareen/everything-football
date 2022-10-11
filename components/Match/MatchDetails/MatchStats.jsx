@@ -16,6 +16,14 @@ const MatchStats = ({matchStats, loading}) => {
         )
     }
 
+    if(!matchStats.Stat){
+      return (
+        <Box>
+            Unavailable...
+        </Box>
+      )
+    }
+
     return (
         <Box sx={{py: 1}}>
           {

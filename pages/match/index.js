@@ -22,7 +22,7 @@ export const getServerSideProps = async () => {
     },
   };
   const liveResponse = await fetch(
-    "https://livescore6.p.rapidapi.com/matches/v2/list-live?Category=soccer",
+    "https://livescore6.p.rapidapi.com/matches/v2/list-live?Category=soccer&Timezone=1",
     options
   );
   const liveData = await liveResponse.json();
