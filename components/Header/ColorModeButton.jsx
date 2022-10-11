@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material"
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import { ColorModeContext } from "../../context/colorModeContext";
+import { ColorModeContext } from "../../context/ColorModeContext";
 import { useContext } from "react";
 
 const ColorModeButton = () => {

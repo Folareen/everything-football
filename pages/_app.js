@@ -1,4 +1,4 @@
-import ColorModeContextProvider from "../context/colorModeContext";
+import ColorModeContextProvider from "../context/ColorModeContext";
 import Layout from "../components/Layout";
 import "@fontsource/signika";
 import "@fontsource/kanit";
