@@ -4,7 +4,7 @@ import { ThemeProvider } from "@emotion/react";
 import { createTheme, CssBaseline } from "@mui/material";
 import { Box } from "@mui/material"
 import { useContext } from 'react';
-import { ColorModeContext } from '../context/colorModeContext';
+import { ColorModeContext } from '../context/ColorModeContext';
 
 const Layout = ({children}) => {
 
