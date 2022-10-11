@@ -1,4 +1,0 @@
-fix standings nav
-add timezone
-show unavailable in today matches if not avaialble
-change events to summary

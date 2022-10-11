@@ -7,7 +7,7 @@ import MatchLineups from "./MatchLineups";
 import MatchCommentary from "./MatchCommentary";
 import MatchStats from "./MatchStats";
 
-const detailsTabItems = ["info", "events", "lineups", "commentary", "stats"];
+const detailsTabItems = ["info", "summary", "lineups", "commentary", "stats"];
 
 const MatchDetails = ({ Eid, Eps }) => {
   const [value, setValue] = useState("1");
@@ -23,7 +23,7 @@ const MatchDetails = ({ Eid, Eps }) => {
 
   useEffect(() => {
     setLoading(true);
-    if (detailsTab === "events") {
+    if (detailsTab === "summary") {
       const options = {
         method: "GET",
         headers: {
