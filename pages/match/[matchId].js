@@ -1,37 +1,85 @@
-import { Typography } from "@mui/material";
+import { ArrowBack } from "@material-ui/icons";
+import { Typography, Box, IconButton, Paper } from "@mui/material";
 import { useRouter } from "next/router";
-import useSWR from "swr";
+import MatchDetails from "../../components/Match/MatchDetails";
+import { useState, useEffect } from "react";
+import Loader from "../../components/Loader";
 
-const match = () => {
-  const {
-    query: { matchId },
-  } = useRouter();
+const Match = () => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  const { data, error } = useSWR("matchId", async () => {
+  useEffect(() => {
+    setLoading(true);
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "a3f5923269mshb2b9a1649ef26b6p14ec30jsn84d8543adf73",
+        "X-RapidAPI-Key": "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
         "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
       },
     };
-    const response = await fetch(
-      `https://livescore6.p.rapidapi.com/matches/v2/detail?Eid=${matchId}&Category=soccer&LiveTable=false`,
+
+    fetch(
+      `https://livescore6.p.rapidapi.com/matches/v2/get-scoreboard?Eid=${router.query.matchId}&Category=soccer`,
       options
-    );
-    const data = await response.json();
-    return data;
-  });
+    )
+      .then((response) => response.json())
+      .then((response) => setData(response))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [router.query.matchId]);
 
-  if (error) {
-    return <Typography>Error!</Typography>;
+  if (loading || data.length < 2) {
+    return <Loader />;
   }
 
-  if (!data) {
-    return <Typography>Loading..</Typography>;
-  }
+  return (
+    <>
+      {data && (
+        <Box sx={{ width: "100%", maxWidth: "800px", mx: "auto" }}>
+          <IconButton onClick={() => router.back()} sx={{ m: 1 }}>
+            <ArrowBack />
+          </IconButton>
+          <Paper
+            sx={{
+              display: "flex",
+              bgcolor: "rgba(0, 51, 102, 0.05)",
+              mx: 1.5,
+              p: 1,
+              textAlign: "center",
+            }}
+            elevation={2}
+          >
+            <Box sx={{ flex: 1 }}>
+              <img
+                src={`https://lsm-static-prod.livescore.com/medium/${data.T1[0].Img}`}
+                style={{ width: "20px", height: "20px" }}
+              />
+              <Typography>{data.T1[0].Nm}</Typography>
+            </Box>
 
-  return <div>{JSON.stringify(data)}</div>;
+            <Box sx={{ flex: 1 }}>
+              <Typography>
+                {data.Tr1} - {data.Tr2}
+              </Typography>
+              <Typography>{data.Eps}</Typography>
+            </Box>
+
+            <Box sx={{ flex: 1 }}>
+              <img
+                src={`https://lsm-static-prod.livescore.com/medium/${data.T2[0].Img}`}
+                style={{ width: "20px", height: "20px" }}
+              />
+              <Typography>{data.T2[0].Nm}</Typography>
+            </Box>
+          </Paper>
+
+          <MatchDetails Eps={data.Eps} Eid={data.Eid} />
+        </Box>
+      )}
+    </>
+  );
 };
 
-export default match;
+export default Match;
