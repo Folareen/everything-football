@@ -21,7 +21,7 @@ const Layout = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{fontFamily: 'Signika', bgcolor: 'rgba(0, 51, 102, 0.2)', minHeight: '100vh', position: 'relative', pb: 6}} >
+      <Box sx={{fontFamily: 'Signika', bgcolor: 'rgba(0, 51, 102, 0.2)', minHeight: '100vh', position: 'relative', pb: 6, overflowX: 'hidden'}} >
         <Header />
         {children}
         <Footer />
