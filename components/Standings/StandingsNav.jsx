@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 const StandingsNav = ({leagues}) => {
     const {query: {standingId}} = useRouter()
   return (
-    <Box sx={{display: 'flex', bgcolor: 'rgba(0, 51, 102, 0.1)', boxShadow: '0 0 3px gray', p: 1, width: 'max-content' }}>
+    <Box sx={{display: 'flex', bgcolor: 'rgba(0, 51, 102, 0.1)', boxShadow: '0 0 3px gray', p: 1, width: 'max-content', overflowX: 'scroll' }}>
         {
             leagues.map(
                 ({title,id}) => {
