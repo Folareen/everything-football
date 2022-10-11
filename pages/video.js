@@ -1,7 +1,7 @@
 import { Box, Typography, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const video = () => {
+const Video = () => {
   const [loading, setLoading] = useState(true);
   const [videosCount, setVideosCount] = useState(5);
   const [videos, setVideos] = useState([]);
@@ -56,4 +56,4 @@ const video = () => {
   );
 };
 
-export default video;
+export default Video;
