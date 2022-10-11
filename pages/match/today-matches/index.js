@@ -19,7 +19,7 @@ const Match = () => {
     }${date.getDate()}`;
 
     const response = await fetch(
-      `https://livescore6.p.rapidapi.com/matches/v2/list-by-date?Category=soccer&Date=${fullDate}`,
+      `https://livescore6.p.rapidapi.com/matches/v2/list-by-date?Category=soccer&Date=${fullDate}&Timezone=1`,
       options
     );
     const data = await response.json();
