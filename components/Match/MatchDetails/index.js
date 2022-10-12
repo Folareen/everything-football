@@ -28,7 +28,7 @@ const MatchDetails = ({ Eid, Eps }) => {
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
@@ -46,7 +46,7 @@ const MatchDetails = ({ Eid, Eps }) => {
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
@@ -64,7 +64,7 @@ const MatchDetails = ({ Eid, Eps }) => {
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "b46a755c58msh18b29b50c9486bfp1ff880jsna3d8784fac25",
+            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
