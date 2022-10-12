@@ -35,7 +35,6 @@ const News = () => {
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
-
       const response = await fetch(
         `https://livescore6.p.rapidapi.com/news/v2/list-by-sport?category=${id}&page=1`,
         options
