@@ -20,7 +20,7 @@ const Standing = ({ leagues }) => {
           method: "GET",
           headers: {
             "X-RapidAPI-Key":
-              "73b0945536msh8ea50af6e2d00b7p1388cejsnd67b8bc47222",
+              "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
             "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
           },
         };
@@ -53,7 +53,7 @@ export const getServerSideProps = async () => {
   const seasonsOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "73b0945536msh8ea50af6e2d00b7p1388cejsnd67b8bc47222",
+      "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
       "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
     },
   };
