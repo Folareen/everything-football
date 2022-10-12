@@ -114,7 +114,7 @@ export const getServerSideProps = async () => {
   const idOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "76b769c4camshff6991a0cebb5acp12e104jsna98520ad5906",
+      "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
       "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
     },
   };
@@ -130,7 +130,7 @@ export const getServerSideProps = async () => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "76b769c4camshff6991a0cebb5acp12e104jsna98520ad5906",
+      "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
       "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
     },
   };
