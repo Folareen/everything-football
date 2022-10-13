@@ -27,7 +27,6 @@ const MatchEvents = ({incidents, Eps, loading}) => {
   const secondHalf = incidents.Incs['2']
 
 
-
   return (
     <Box >
       {
@@ -179,8 +178,9 @@ const MatchEvents = ({incidents, Eps, loading}) => {
       }
 
 
-      {
-        secondHalf.map((incident, index) => {
+      {secondHalf &&
+        <>
+        {secondHalf.map((incident, index) => {
           const {Min, Nm} = incident
           return (
             <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}} key={index}>
@@ -316,6 +316,8 @@ const MatchEvents = ({incidents, Eps, loading}) => {
           </Grid>
           )
         })
+        }
+        </>
       }
 
       {
