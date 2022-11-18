@@ -4,7 +4,7 @@ import Table from "../../components/Standings/Table";
 import Loader from "../../components/Loader";
 import { useState, useEffect } from "react";
 
-const Standings = () => {
+const Standings = ({ transfermarketApiKey }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,8 +14,7 @@ const Standings = () => {
       const seasonsOptions = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": transfermarketApiKey,
           "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
         },
       };
@@ -29,8 +28,7 @@ const Standings = () => {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": transfermarketApiKey,
           "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
         },
       };
@@ -63,3 +61,11 @@ const Standings = () => {
 };
 
 export default Standings;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      transfermarketApiKey: process.env.TRANSFERMARKET,
+    },
+  };
+};

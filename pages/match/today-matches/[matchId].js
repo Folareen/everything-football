@@ -5,7 +5,7 @@ import MatchDetails from "../../../components/Match/MatchDetails";
 import { useState, useEffect } from "react";
 import Loader from "../../../components/Loader";
 
-const Match = () => {
+const Match = ({ livescoreApiKey }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ const Match = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+        "X-RapidAPI-Key": livescoreApiKey,
         "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
       },
     };
@@ -75,7 +75,11 @@ const Match = () => {
             </Box>
           </Paper>
 
-          <MatchDetails Eps={data.Eps} Eid={data.Eid} />
+          <MatchDetails
+            Eps={data.Eps}
+            Eid={data.Eid}
+            livescoreApiKey={livescoreApiKey}
+          />
         </Box>
       )}
     </>
@@ -83,3 +87,11 @@ const Match = () => {
 };
 
 export default Match;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      livescoreApiKey: process.env.LIVESCORE,
+    },
+  };
+};
