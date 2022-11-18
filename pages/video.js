@@ -2,7 +2,7 @@ import { Box, Typography, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 
-const Video = () => {
+const Video = ({ freesoccervideosApiKey }) => {
   const [loading, setLoading] = useState(true);
   const [videosCount, setVideosCount] = useState(5);
   const [videos, setVideos] = useState([]);
@@ -12,7 +12,7 @@ const Video = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "a3f5923269mshb2b9a1649ef26b6p14ec30jsn84d8543adf73",
+        "X-RapidAPI-Key": freesoccervideosApiKey,
         "X-RapidAPI-Host": "free-football-soccer-videos.p.rapidapi.com",
       },
     };
@@ -57,3 +57,11 @@ const Video = () => {
 };
 
 export default Video;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      freesoccervideosApiKey: process.env.FREESOCCERVIDEOS,
+    },
+  };
+};

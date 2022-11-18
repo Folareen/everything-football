@@ -4,7 +4,7 @@ import MatchesNav from "../../components/Match/MatchesNav";
 import Loader from "../../components/Loader";
 import { useState, useEffect } from "react";
 
-const Match = () => {
+const Match = ({ livescoreApiKey }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,7 +13,7 @@ const Match = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+        "X-RapidAPI-Key": livescoreApiKey,
         "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
       },
     };
@@ -41,3 +41,11 @@ const Match = () => {
 };
 
 export default Match;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      livescoreApiKey: process.env.LIVESCORE,
+    },
+  };
+};

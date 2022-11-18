@@ -3,7 +3,7 @@ import Link from "next/link";
 import Loader from "../../components/Loader";
 import { useState, useEffect } from "react";
 
-const News = () => {
+const News = ({ livescoreApiKey }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,8 +13,7 @@ const News = () => {
       const idOptions = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": livescoreApiKey,
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
@@ -30,8 +29,7 @@ const News = () => {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": livescoreApiKey,
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
@@ -110,3 +108,11 @@ const News = () => {
 };
 
 export default News;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      livescoreApiKey: process.env.LIVESCORE,
+    },
+  };
+};

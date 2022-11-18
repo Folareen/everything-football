@@ -4,7 +4,7 @@ import StandingsNav from "../../components/Standings/StandingsNav";
 import Table from "../../components/Standings/Table";
 import { useRouter } from "next/router";
 
-const Standing = ({ leagues }) => {
+const Standing = ({ leagues, transfermarketApiKey }) => {
   const {
     query: { standingId },
   } = useRouter();
@@ -19,8 +19,7 @@ const Standing = ({ leagues }) => {
         const options = {
           method: "GET",
           headers: {
-            "X-RapidAPI-Key":
-              "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+            "X-RapidAPI-Key": transfermarketApiKey,
             "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
           },
         };
@@ -53,7 +52,7 @@ export const getServerSideProps = async () => {
   const seasonsOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+      "X-RapidAPI-Key": transfermarketApiKey,
       "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
     },
   };
@@ -66,6 +65,14 @@ export const getServerSideProps = async () => {
   return {
     props: {
       leagues: season.defaultCompetitions,
+    },
+  };
+};
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      transfermarketApiKey: process.env.TRANSFERMARKET,
     },
   };
 };

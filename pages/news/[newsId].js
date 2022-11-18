@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { ArrowBack } from "@material-ui/icons";
 import Loader from "../../components/Loader";
 
-const NewsDetail = () => {
+const NewsDetail = ({ livescoreApiKey }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ const NewsDetail = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+        "X-RapidAPI-Key": livescoreApiKey,
         "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
       },
     };
@@ -78,3 +78,11 @@ const NewsDetail = () => {
 };
 
 export default NewsDetail;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      livescoreApiKey: process.env.LIVESCORE,
+    },
+  };
+};

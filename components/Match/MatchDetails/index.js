@@ -9,7 +9,7 @@ import MatchStats from "./MatchStats";
 
 const detailsTabItems = ["info", "summary", "lineups", "commentary", "stats"];
 
-const MatchDetails = ({ Eid, Eps }) => {
+const MatchDetails = ({ Eid, Eps, livescoreApiKey }) => {
   const [value, setValue] = useState("1");
   const [details, setDetails] = useState();
   const [detailsTab, setDetailsTab] = useState("info");
@@ -27,8 +27,7 @@ const MatchDetails = ({ Eid, Eps }) => {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": livescoreApiKey,
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
@@ -45,8 +44,7 @@ const MatchDetails = ({ Eid, Eps }) => {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": livescoreApiKey,
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
@@ -63,8 +61,7 @@ const MatchDetails = ({ Eid, Eps }) => {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "3dbacb8771msh387952f423fd831p1df808jsn772e2db53a42",
+          "X-RapidAPI-Key": livescoreApiKey,
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
