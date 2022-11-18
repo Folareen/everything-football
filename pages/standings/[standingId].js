@@ -68,11 +68,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-export const getServerSideProps = async () => {
-  return {
-    props: {
-      transfermarketApiKey: process.env.TRANSFERMARKET,
-    },
-  };
-};
