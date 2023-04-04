@@ -30,7 +30,7 @@ const MatchEvents = ({incidents, Eps, loading}) => {
   return (
     <Box >
       {
-        firstHalf.map((incident, index) => {
+        firstHalf?.map((incident, index) => {
           const {Min, Nm} = incident
           return (
           <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}} key={index}>
@@ -180,7 +180,7 @@ const MatchEvents = ({incidents, Eps, loading}) => {
 
       {secondHalf &&
         <>
-        {secondHalf.map((incident, index) => {
+        {secondHalf?.map((incident, index) => {
           const {Min, Nm} = incident
           return (
             <Grid container sx={{borderBottom: '1px solid rgba(0, 51, 102, 0.4)', py: 1}} key={index}>

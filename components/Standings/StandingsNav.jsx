@@ -23,7 +23,7 @@ export default function StandingsNav({leagues}) {
         aria-label="scrollable auto tabs example"
       >
          {
-             leagues.map(
+             leagues?.map(
                  ({title,id}) => {
                      return(
                             <Tab label={title} key={id} />

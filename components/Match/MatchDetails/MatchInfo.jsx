@@ -29,7 +29,7 @@ const MatchInfo = ({matchInfo, loading}) => {
           </Typography>
           <Typography sx={{display: 'flex', alignItems: 'center', py: 1, mb: 0.5}}>
             <SportsRoundedIcon sx={{mr: 1}} />
-            {matchInfo?.Ref && matchInfo.Refs[0].Nm}
+            {matchInfo?.Refs && matchInfo.Refs[0]?.Nm}
           </Typography>
         </Box>
     )

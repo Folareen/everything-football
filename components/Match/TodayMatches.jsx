@@ -65,7 +65,7 @@ const League = ({league}) => {
     </Box>
 
     {
-      Events.map(
+      Events?.map(
         (event, index) => {
           return <Match match={event} key={index}/>
         }
@@ -92,7 +92,7 @@ const TodayMatches = ({data}) => {
             indicatorColor="secondary" variant="scrollable" scrollButtons
             allowScrollButtonsMobile
           >
-            {Stages.map((league, index) => {
+            {Stages?.map((league, index) => {
               return (
                 <Tab
                   label={league.Snm}
@@ -104,7 +104,7 @@ const TodayMatches = ({data}) => {
             })}
           </TabList>
         </Box>
-        {Stages.map((league, index) => {
+        {Stages?.map((league, index) => {
           return <TabPanel value={String(index + 1)} key={index}>
             <League league={league} />
           </TabPanel>;

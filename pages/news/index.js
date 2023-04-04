@@ -9,38 +9,43 @@ const News = ({ livescoreApiKey }) => {
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
-      const idOptions = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": livescoreApiKey,
-          "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
-        },
-      };
+      try {
+        setLoading(true);
+        const idOptions = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": livescoreApiKey,
+            "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
+          },
+        };
 
-      const idResponse = await fetch(
-        "https://livescore6.p.rapidapi.com/news/v2/list",
-        idOptions
-      );
-      const idData = await idResponse.json();
+        const idResponse = await fetch(
+          "https://livescore6.p.rapidapi.com/news/v2/list",
+          idOptions
+        );
+        const idData = await idResponse.json();
 
-      const id = idData.categories[0].id;
+        const id = idData.categories[0].id;
 
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": livescoreApiKey,
-          "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
-        },
-      };
-      const response = await fetch(
-        `https://livescore6.p.rapidapi.com/news/v2/list-by-sport?category=${id}&page=1`,
-        options
-      );
-      const responseData = await response.json();
-      const data = responseData.data;
-      setData(data);
-      setLoading(false);
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": livescoreApiKey,
+            "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
+          },
+        };
+        const response = await fetch(
+          `https://livescore6.p.rapidapi.com/news/v2/list-by-sport?category=${id}&page=1`,
+          options
+        );
+        const responseData = await response.json();
+        const data = responseData.data;
+        setData(data);
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
     })();
   }, []);
 
@@ -56,7 +61,7 @@ const News = ({ livescoreApiKey }) => {
       >
         Latest News
       </Typography>
-      {data.map(({ title, image, published_at, id }) => {
+      {data?.map(({ title, image, published_at, id }) => {
         return (
           <Link href={`news/${id}`} key={published_at}>
             <Box

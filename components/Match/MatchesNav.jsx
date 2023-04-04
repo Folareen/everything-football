@@ -16,7 +16,7 @@ const MatchesNav = () => {
   return (
     <Box sx={{display: 'flex', justifyContent: 'center', mx: 'auto', bgcolor: 'rgba(0, 51, 102, 0.1)', boxShadow: '0 0 3px gray'}}>
         {
-            navItems.map(
+            navItems?.map(
                 ({title, route}, index) => {
                     return(
                         <Link href={route} key={index}>

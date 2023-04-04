@@ -10,37 +10,42 @@ const Standings = ({ transfermarketApiKey }) => {
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
-      const seasonsOptions = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": transfermarketApiKey,
-          "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
-        },
-      };
+      try {
+        setLoading(true);
+        const seasonsOptions = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": transfermarketApiKey,
+            "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
+          },
+        };
 
-      const seasonResponse = await fetch(
-        "https://transfermarket.p.rapidapi.com/competitions/list-default?domain=de",
-        seasonsOptions
-      );
-      const season = await seasonResponse.json();
+        const seasonResponse = await fetch(
+          "https://transfermarket.p.rapidapi.com/competitions/list-default?domain=de",
+          seasonsOptions
+        );
+        const season = await seasonResponse.json();
 
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": transfermarketApiKey,
-          "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
-        },
-      };
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": transfermarketApiKey,
+            "X-RapidAPI-Host": "transfermarket.p.rapidapi.com",
+          },
+        };
 
-      const response = await fetch(
-        `https://transfermarket.p.rapidapi.com/competitions/get-table?id=L1&seasonID=2022&domain=de`,
-        options
-      );
-      const tableResponse = await response.json();
-      const data = [season.defaultCompetitions, tableResponse.table];
-      setData(data);
-      setLoading(false);
+        const response = await fetch(
+          `https://transfermarket.p.rapidapi.com/competitions/get-table?id=L1&seasonID=2022&domain=de`,
+          options
+        );
+        const tableResponse = await response.json();
+        const data = [season.defaultCompetitions, tableResponse.table];
+        setData(data);
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
     })();
   }, []);
 

@@ -23,7 +23,7 @@ const table = ({table}) => {
         </TableHead>
         <TableBody>
 
-          {table.map(({rank, clubName, matches, goalDifference, points}) => (
+          {table?.map(({rank, clubName, matches, goalDifference, points}) => (
             <TableRow
               key={rank}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

@@ -90,7 +90,7 @@ const MatchDetails = ({ Eid, Eps, livescoreApiKey }) => {
             scrollButtons
             allowScrollButtonsMobile
           >
-            {detailsTabItems.map((tab, index) => {
+            {detailsTabItems?.map((tab, index) => {
               return (
                 <Tab
                   label={tab}

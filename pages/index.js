@@ -14,7 +14,7 @@ export default function Home({ carouselData, newsData }) {
           autoPlay
           showStatus={false}
         >
-          {carouselData.map((image) => {
+          {carouselData?.map((image) => {
             return (
               <Box
                 sx={{
@@ -42,7 +42,7 @@ export default function Home({ carouselData, newsData }) {
       <Box sx={{ p: 1 }}>
         <Typography sx={{ fontSize: 20, mb: 1 }}>Latest News</Typography>
         <Box>
-          {newsData.map(({ title, image, published_at, id }) => {
+          {newsData?.map(({ title, image, published_at, id }) => {
             return (
               <Link
                 href={`news/${id}`}

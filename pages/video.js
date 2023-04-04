@@ -34,7 +34,7 @@ const Video = ({ freesoccervideosApiKey }) => {
 
   return (
     <Box sx={{ px: 3, pb: 4 }}>
-      {videos.map((video, index) => {
+      {videos?.map((video, index) => {
         return (
           <Box
             sx={{ my: 1, width: { xs: "100%", lg: "900px" }, mx: "auto" }}

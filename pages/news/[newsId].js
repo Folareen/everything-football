@@ -51,7 +51,7 @@ const NewsDetail = ({ livescoreApiKey }) => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
-      {data[0].map((paragraph, index) => {
+      {data[0]?.map((paragraph, index) => {
         return (
           <>
             {paragraph.type == "embed" &&

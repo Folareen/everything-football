@@ -16,7 +16,7 @@ const MatchStats = ({matchStats, loading}) => {
         )
     }
 
-    if(!matchStats.Stat){
+    if(!matchStats?.Stat){
       return (
         <Box>
             Unavailable...
@@ -27,7 +27,7 @@ const MatchStats = ({matchStats, loading}) => {
     return (
         <Box sx={{py: 1}}>
           {
-            statsArr.map(stat => {
+            statsArr?.map(stat => {
               return(
                 <Box key={stat} sx={{mb: 2, bgcolor: 'rgba(0, 51, 102, 0.1)', p: 0.5, borderRadius: 1}}> 
                   <Box sx={{display: 'flex'}}>
