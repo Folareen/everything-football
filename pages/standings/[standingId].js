@@ -49,6 +49,8 @@ const Standing = ({ leagues, transfermarketApiKey }) => {
 export default Standing;
 
 export const getServerSideProps = async () => {
+const transfermarketApiKey = process.env.TRANSFERMARKET
+
   const seasonsOptions = {
     method: "GET",
     headers: {
@@ -65,6 +67,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       leagues: season.defaultCompetitions,
+      transfermarketApiKey,
     },
   };
 };
